@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Rhymes | Interactive Children's Drawing & Rhyme Platform</title>
+    <meta name="description" content="Fun interactive platform for kids to learn rhymes, color drawings, and create printable PDFs. Educational tools for creative young minds.">
+    <meta name="keywords" content="children rhymes, coloring pages, kids drawing, printable PDF, JPG editor, nursery rhymes">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+            --round-sm: 8px;
+            --round-md: 16px;
+            --round-lg: 24px;
+            --font-heading: 'Fredoka One', cursive;
+            --font-body: 'Comic Neue', cursive;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 0.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: var(--round-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1920x600/FFE66D/FFFFFF?text=Welcome+to+Colorful+Rhymes') center/cover;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--round-md);
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+        
+        /* Features Grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--round-md);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 1.5rem;
+        }
+        
+        .feature-content h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        /* Popular Rhymes */
+        .rhymes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .rhyme-card {
+            background-color: white;
+            border-radius: var(--round-md);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .rhyme-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .rhyme-thumbnail {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rhyme-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255,255,255,0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .rhyme-card:hover .play-icon {
+            opacity: 1;
+        }
+        
+        .rhyme-info {
+            padding: 1rem;
+        }
+        
+        .rhyme-info h3 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .rhyme-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Coloring Tools */
+        .tools-section {
+            background-color: var(--light);
+            padding: 3rem 0;
+            margin: 3rem 0;
+            border-radius: var(--round-md);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: var(--round-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .tool-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .tool-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--round-md);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: rgba(78, 205, 196, 0.1);
+            position: absolute;
+            top: 0;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonial p {
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--primary);
+        }
+        
+        .author-info p {
+            font-style: normal;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: var(--round-md);
+            margin: 3rem 0;
+        }
+        
+        .cta h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem 1rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-family: var(--font-heading);
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
+            
+            .btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Colorful Rhymes</div>
+        <div class="tagline">Where Learning Meets Creativity!</div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rhymes">Rhymes</a></li>
+                <li><a href="#coloring">Coloring</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#printables">Printables</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Spark Creativity with Fun Rhymes & Coloring!</h1>
+            <p>Discover hundreds of interactive rhymes and coloring pages with our easy-to-use tools for kids of all ages.</p>
+            <a href="#rhymes" class="btn btn-primary">Explore Rhymes</a>
+            <a href="#coloring" class="btn">Start Coloring</a>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Featured Rhymes -->
+        <section id="rhymes">
+            <h2 class="section-title">Popular Rhymes</h2>
+            <div class="rhymes-grid">
+                <!-- Rhyme Card 1 -->
+                <div class="rhyme-card">
+                    <div class="rhyme-thumbnail">
+                        <img src="https://via.placeholder.com/300x180/FF6B6B/FFFFFF?text=Twinkle+Twinkle" alt="Twinkle Twinkle Little Star">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Twinkle Twinkle</h3>
+                        <p>Interactive star animation with music</p>
+                    </div>
+                </div>
+                
+                <!-- Rhyme Card 2 -->
+                <div class="rhyme-card">
+                    <div class="rhyme-thumbnail">
+                        <img src="https://via.placeholder.com/300x180/4ECDC4/FFFFFF?text=Itsy+Bitsy" alt="Itsy Bitsy Spider">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Itsy Bitsy Spider</h3>
+                        <p>Animated climbing adventure</p>
+                    </div>
+                </div>
+                
+                <!-- Rhyme Card 3 -->
+                <div class="rhyme-card">
+                    <div class="rhyme-thumbnail">
+                        <img src="https://via.placeholder.com/300x180/FFE66D/292F36?text=Humpty+Dumpty" alt="Humpty Dumpty">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Humpty Dumpty</h3>
+                        <p>Interactive puzzle game</p>
+                    </div>
+                </div>
+                
+                <!-- Rhyme Card 4 -->
+                <div class="rhyme-card">
+                    <div class="rhyme-thumbnail">
+                        <img src="https://via.placeholder.com/300x180/A5D8FF/292F36?text=Old+MacDonald" alt="Old MacDonald">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="rhyme-info">
+                        <h3>Old MacDonald</h3>
+                        <p>Farm animal soundboard</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="features">
+            <!-- Feature 1 -->
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="https://via.placeholder.com/600x400/FFE66D/FFFFFF?text=Interactive+Rhymes" alt="Interactive Rhymes">
+                </div>
+                <div class="feature-content">
+                    <h3>Interactive Rhymes</h3>
+                    <p>Engage with animated characters that respond to your child's touch and voice. Sing along with highlighted lyrics and fun animations.</p>
+                    <a href="#" class="btn">Try Now</a>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="https://via.placeholder.com/600x400/4ECDC4/FFFFFF?text=Coloring+Pages" alt="Coloring Pages">
+                </div>
+                <div class="feature-content">
+                    <h3>Coloring Pages</h3>
+                    <p>Hundreds of printable coloring pages or color digitally with our easy-to-use tools. Save and share your masterpieces!</p>
+                    <a href="#" class="btn">Start Coloring</a>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="feature-card">
+                <div class="feature-img">
+                    <img src="https://via.placeholder.com/600x400/FF6B6B/FFFFFF?text=PDF+Tools" alt="PDF Tools">
+                </div>
+                <div class="feature-content">
+                    <h3>PDF Tools</h3>
+                    <p>Create custom printable PDFs with your child's name, favorite colors, and more. Perfect for classrooms or home learning.</p>
+                    <a href="#" class="btn">Create PDF</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Coloring Tools Section -->
+        <section class="tools-section" id="tools">
+            <h2 class="section-title">Creative Tools</h2>
+            <div class="tools-grid">
+                <!-- Tool 1 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🎨</div>
+                    <h3>Color Filler</h3>
+                    <p>Easy one-tap coloring tool with vibrant colors and patterns</p>
+                    <a href="#" class="btn">Try It</a>
+                </div>
+                
+                <!-- Tool 2 -->
+                <div class="tool-card">
+                    <div class="tool-icon">✏️</div>
+                    <h3>Drawing Pad</h3>
+                    <p>Free drawing canvas with brushes, stamps, and stickers</p>
+                    <a href="#" class="btn">Start Drawing</a>
+                </div>
+                
+                <!-- Tool 3 -->
+                <div class="tool-card">
+                    <div class="tool-icon">🖼️</div>
+                    <h3>Image Editor</h3>
+                    <p>Upload and customize photos with fun filters and effects</p>
+                    <a href="#" class="btn">Edit Photos</a>
+                </div>
+                
+                <!-- Tool 4 -->
+                <div class="tool-card">
+                    <div class="tool-icon">📄</div>
+                    <h3>PDF Creator</h3>
+                    <p>Combine drawings and rhymes into printable PDF books</p>
+                    <a href="#" class="btn">Make PDF</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section id="testimonials">
+            <h2 class="section-title">What Parents Say</h2>
+            <div class="testimonials">
+                <!-- Testimonial 1 -->
+                <div class="testimonial">
+                    <p>My daughter loves the interactive rhymes! She's learned so many new songs and the coloring tools keep her engaged for hours.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/50x50/FF6B6B/FFFFFF?text=SM" alt="Sarah M">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Parent of 4-year-old</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial">
+                    <p>As a kindergarten teacher, I use these printable PDFs every week. The kids love the customized coloring pages with their names!</p>
+                    <p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://via.placeholder.com/50x50/4ECDC4/FFFFFF?text=JT" alt="James T">
+                        </div>
+                        <div class="author-info">
+                            <h4>James T.</h4>
+                            <p>Kindergarten Teacher</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial">
+                    <p> i love kids rhyme
