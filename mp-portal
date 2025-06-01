@@ -3,433 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital India Nexus | Futuristic Govt Portal</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7384639868183712" crossorigin="anonymous"></script>
-  
+  <title>India Govt Job Alert Links</title>
   <style>
-    :root {
-      --neon-saffron: #FF9933;
-      --neon-white: #FFFFFF;
-      --neon-green: #138808;
-      --neon-blue: #0ff0fc;
-      --neon-purple: #bc13fe;
-      --cyber-dark: #0a0a20;
-      --cyber-pink: #ff44cc;
-      --cyber-yellow: #f5d300;
-    }
-    
-    body {
-      font-family: 'Orbitron', 'Rajdhani', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--cyber-dark);
-      color: white;
-      background-image: 
-        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
-      background-size: 50px 50px;
-      background-position: 0 0, 25px 25px;
-    }
-    
-    /* Tricolor Ad Space */
-    .tricolor-ad {
-      background: linear-gradient(
-        to right,
-        var(--neon-saffron) 33%,
-        var(--neon-white) 33% 66%,
-        var(--neon-green) 66%
-      );
-      border-radius: 8px;
-      padding: 3px;
-      margin: 20px 0;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-    
-    .ad-container {
-      background-color: rgba(10,10,30,0.9);
-      border-radius: 6px;
-      padding: 15px;
-      text-align: center;
-    }
-    
-    /* Header Animation */
-    @keyframes hologram {
-      0%, 100% { text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-purple); }
-      50% { text-shadow: 0 0 15px var(--cyber-pink), 0 0 30px var(--neon-green); }
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .cyber-header {
-      background: linear-gradient(135deg, rgba(10,10,30,0.8), rgba(30,10,50,0.8));
-      border-bottom: 1px solid var(--neon-blue);
-      box-shadow: 0 0 30px rgba(11, 240, 252, 0.2);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-      padding: 40px 0;
-      margin-bottom: 30px;
-    }
-    
-    .cyber-header::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(
-        circle,
-        rgba(11, 240, 252, 0.1) 0%,
-        transparent 70%
-      );
-      animation: rotate 20s linear infinite;
-    }
-    
-    .cyber-logo {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: hologram 3s ease-in-out infinite;
-      letter-spacing: 3px;
-      margin: 0;
-    }
-    
-    .cyber-subtitle {
-      color: var(--neon-blue);
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      text-shadow: 0 0 10px var(--neon-blue);
-      margin-top: 10px;
-    }
-    
-    /* Cyber Card */
-    .cyber-card {
-      background: rgba(10, 10, 32, 0.7);
-      border: 1px solid var(--neon-blue);
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(11, 240, 252, 0.1);
-    }
-    
-    .cyber-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        45deg,
-        transparent 48%,
-        rgba(11, 240, 252, 0.1) 49%,
-        rgba(11, 240, 252, 0.1) 51%,
-        transparent 52%
-      );
-      background-size: 5px 5px;
-    }
-    
-    .cyber-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(11, 240, 252, 0.4);
-    }
-    
-    .cyber-card-title {
-      font-size: clamp(1.2rem, 4vw, 1.8rem);
-      margin-top: 0;
-      color: var(--neon-blue);
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    
-    .cyber-card-title i {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-    
-    .resource-link {
-      display: block;
-      color: var(--neon-blue);
-      text-decoration: none;
-      padding: 8px 15px;
-      margin: 5px 0;
-      border-radius: 4px;
-      transition: all 0.3s ease;
-      background: rgba(11, 240, 252, 0.1);
-      border-left: 3px solid var(--neon-blue);
-    }
-    
-    .resource-link:hover {
-      background: rgba(11, 240, 252, 0.2);
-      transform: translateX(5px);
-    }
-    
-    .resource-link i {
-      margin-right: 10px;
-      width: 20px;
-      text-align: center;
-    }
-    
-    /* Floating Animation */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    /* Responsive Columns */
-    .responsive-columns {
-      column-count: 1;
-      column-gap: 20px;
-    }
-    
-    @media (min-width: 576px) {
-      .responsive-columns {
-        column-count: 2;
-      }
-    }
-    
-    @media (min-width: 992px) {
-      .responsive-columns {
-        column-count: 3;
-      }
-    }
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+    h2 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 40px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #007BFF; color: white; }
+    a { color: #007BFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="container cyber-container py-4">
-    <!-- Animated Background Elements -->
-    <div class="position-fixed top-0 start-0 w-100 h-100" style="
-      background: radial-gradient(circle at 20% 30%, rgba(188, 19, 254, 0.1) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 70%, rgba(11, 240, 252, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    "></div>
-    
-    <!-- Header -->
-    <header class="cyber-header rounded-bottom">
-      <h1 class="cyber-logo">DIGITAL INDIA NEXUS</h1>
-      <p class="cyber-subtitle">YOUR GATEWAY TO FUTURE-READY GOVERNMENT SERVICES</p>
-    </header>
-    
-    <!-- Tricolor Ad Space 1 -->
-    <div class="tricolor-ad">
-      <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7384639868183712"
-             data-ad-slot="1234567890"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </div>
-    
-    <!-- Mega Resources Card -->
-    <div class="cyber-card floating">
-      <h2 class="cyber-card-title"><i class="fas fa-star"></i> ALL GOVERNMENT RESOURCES</h2>
-      <div class="responsive-columns mt-4">
-        
-        <!-- Government Portals Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-university"></i> Government Portals
-          </h3>
-          <a href="https://pmkisan.gov.in" target="_blank" class="resource-link">
-            <i class="fas fa-rupee-sign"></i> PM Kisan Portal
-          </a>
-          <a href="https://uidai.gov.in" target="_blank" class="resource-link">
-            <i class="fas fa-id-card"></i> Aadhaar Services
-          </a>
-          <a href="https://swayam.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-graduation-cap"></i> SWAYAM Online Courses
-          </a>
-          <a href="https://epathshala.nic.in/" target="_blank" class="resource-link">
-            <i class="fas fa-book"></i> ePathshala (NCERT)
-          </a>
-          <a href="https://nptel.ac.in/" target="_blank" class="resource-link">
-            <i class="fas fa-laptop-code"></i> NPTEL Technical Courses
-          </a>
-        </div>
-        
-        <!-- MP Services Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-map-marker-alt"></i> Madhya Pradesh Services
-          </h3>
-          <a href="https://mpbhulekh.gov.in/mpbhulekh.do" target="_blank" class="resource-link">
-            <i class="fas fa-map"></i> MP Bhulekh (Land Records)
-          </a>
-          <a href="https://saara.mp.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-home"></i> SAARA (Property Registration)
-          </a>
-          <a href="https://mpedistrict.gov.in/MPL/index.aspx" target="_blank" class="resource-link">
-            <i class="fas fa-laptop-house"></i> MP e-District
-          </a>
-          <a href="https://rcms.mp.gov.in/Citizen/Default.aspx" target="_blank" class="resource-link">
-            <i class="fas fa-file-contract"></i> Revenue Case Management
-          </a>
-          <a href="https://mpfr.agristack.gov.in/farmer-registry-mp" target="_blank" class="resource-link">
-            <i class="fas fa-tractor"></i> Farmer Registry
-          </a>
-        </div>
-        
-        <!-- Study Materials Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-book-open"></i> Study Materials
-          </h3>
-          <a href="https://testbook.com/" target="_blank" class="resource-link">
-            <i class="fas fa-file-alt"></i> Testbook
-          </a>
-          <a href="https://www.adda247.com/" target="_blank" class="resource-link">
-            <i class="fas fa-newspaper"></i> Adda247
-          </a>
-          <a href="https://exampur.com/study-material/" target="_blank" class="resource-link">
-            <i class="fas fa-download"></i> Exampur
-          </a>
-          <a href="https://guidely.in/free-pdf" target="_blank" class="resource-link">
-            <i class="fas fa-file-pdf"></i> Guidely PDFs
-          </a>
-          <a href="https://www.notopedia.com/sarkari-jobs-exam" target="_blank" class="resource-link">
-            <i class="fas fa-sticky-note"></i> Notopedia
-          </a>
-          <a href="https://edutap.in/free-material/" target="_blank" class="resource-link">
-            <i class="fas fa-book-reader"></i> EduTap
-          </a>
-          <a href="https://www.studylikeapro.com/p/downloads-pdf-study-materials.html" target="_blank" class="resource-link">
-            <i class="fas fa-user-graduate"></i> StudyLikeAPro
-          </a>
-          <a href="https://educationsource.in/study-material-for-all-competitive-exams/" target="_blank" class="resource-link">
-            <i class="fas fa-graduation-cap"></i> EducationSource
-          </a>
-          <a href="https://www.chaduvu.in/competitive-exams-materials/" target="_blank" class="resource-link">
-            <i class="fas fa-award"></i> Chaduvu
-          </a>
-        </div>
-        
-        <!-- State Portals Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-flag"></i> State Portals
-          </h3>
-          <a href="https://mponline.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-desktop"></i> MP Online
-          </a>
-          <a href="https://uppsc.up.nic.in/" target="_blank" class="resource-link">
-            <i class="fas fa-landmark"></i> UP PSC
-          </a>
-          <a href="https://rpsc.rajasthan.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-archway"></i> Rajasthan PSC
-          </a>
-          <a href="https://bpsc.bih.nic.in/" target="_blank" class="resource-link">
-            <i class="fas fa-university"></i> Bihar PSC
-          </a>
-          <a href="https://mahampsc.mahaonline.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-gopuram"></i> Maharashtra PSC
-          </a>
-          <a href="https://kpsc.kar.nic.in/" target="_blank" class="resource-link">
-            <i class="fas fa-torii-gate"></i> Karnataka PSC
-          </a>
-          <a href="https://www.tnpsc.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-temple"></i> Tamil Nadu PSC
-          </a>
-          <a href="https://wbpsc.gov.in/" target="_blank" class="resource-link">
-            <i class="fas fa-monument"></i> West Bengal PSC
-          </a>
-        </div>
-        
-        <!-- Job Portals Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-briefcase"></i> Job Portals
-          </h3>
-          <a href="https://www.sarkariresult.com/" target="_blank" class="resource-link">
-            <i class="fas fa-search"></i> Sarkari Result
-          </a>
-          <a href="https://www.sarkari-naukri.org/" target="_blank" class="resource-link">
-            <i class="fas fa-user-tie"></i> Sarkari Naukri
-          </a>
-          <a href="https://www.freejobalert.com/" target="_blank" class="resource-link">
-            <i class="fas fa-bell"></i> Free Job Alert
-          </a>
-          <a href="https://www.sarkarijobfind.com/" target="_blank" class="resource-link">
-            <i class="fas fa-search-plus"></i> Sarkari Job Find
-          </a>
-        </div>
-        
-        <!-- Mobile Apps Section -->
-        <div class="mb-4">
-          <h3 style="color: var(--neon-blue); border-bottom: 1px solid var(--neon-blue); padding-bottom: 5px;">
-            <i class="fas fa-mobile-alt"></i> Mobile Apps
-          </h3>
-          <a href="https://play.google.com/store/apps/details?id=com.sarkariresult" target="_blank" class="resource-link">
-            <i class="fab fa-android"></i> Sarkari Result App
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.sarkari.naukri" target="_blank" class="resource-link">
-            <i class="fab fa-google-play"></i> Sarkari Naukri App
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.freejobalert.app" target="_blank" class="resource-link">
-            <i class="fas fa-bell"></i> Free Job Alert App
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.government.jobs.alerts" target="_blank" class="resource-link">
-            <i class="fas fa-envelope"></i> Govt Jobs Alerts
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Tricolor Ad Space 2 -->
-    <div class="tricolor-ad">
-      <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-7384639868183712"
-             data-ad-slot="2345678901"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="text-center py-4 mt-3" style="border-top: 1px solid var(--neon-blue);">
-      <p>© 2023 DIGITAL INDIA NEXUS | POWERED BY INNOVATION</p>
-      <div class="d-flex justify-content-center gap-3 mt-2">
-        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-      </div>
-    </footer>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Initialize AdSense
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    
-    // Add floating animation to card
-    document.querySelectorAll('.floating').forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.3}s`;
-    });
-  </script>
+  <h2>Central Government Job Portals</h2>
+  <table>
+    <tr><th>Name</th><th>Link</th></tr>
+    <tr><td>UPSC</td><td><a href="https://upsc.gov.in" target="_blank">https://upsc.gov.in</a></td></tr>
+    <tr><td>SSC</td><td><a href="https://ssc.nic.in" target="_blank">https://ssc.nic.in</a></td></tr>
+    <tr><td>FreeJobAlert</td><td><a href="https://www.freejobalert.com" target="_blank">https://www.freejobalert.com</a></td></tr>
+    <tr><td>IndGovtJobs</td><td><a href="https://www.indgovtjobs.in" target="_blank">https://www.indgovtjobs.in</a></td></tr>
+    <tr><td>Naukri - Govt Jobs</td><td><a href="https://www.naukri.com/government-jobs" target="_blank">https://www.naukri.com/government-jobs</a></td></tr>
+  </table>
+
+  <h2>State Government Job Portals</h2>
+  <table>
+    <tr><th>State</th><th>Link</th></tr>
+    <tr><td>Andhra Pradesh</td><td><a href="https://psc.ap.gov.in" target="_blank">psc.ap.gov.in</a></td></tr>
+    <tr><td>Arunachal Pradesh</td><td><a href="https://appsc.gov.in" target="_blank">appsc.gov.in</a></td></tr>
+    <tr><td>Assam</td><td><a href="https://apscrecruitment.in" target="_blank">apscrecruitment.in</a></td></tr>
+    <tr><td>Bihar</td><td><a href="https://bpsc.bih.nic.in" target="_blank">bpsc.bih.nic.in</a></td></tr>
+    <tr><td>Chhattisgarh</td><td><a href="https://psc.cg.gov.in" target="_blank">psc.cg.gov.in</a></td></tr>
+    <tr><td>Goa</td><td><a href="https://gpsc.goa.gov.in" target="_blank">gpsc.goa.gov.in</a></td></tr>
+    <tr><td>Gujarat</td><td><a href="https://gpsc.gujarat.gov.in" target="_blank">gpsc.gujarat.gov.in</a></td></tr>
+    <tr><td>Haryana</td><td><a href="https://hpsc.gov.in" target="_blank">hpsc.gov.in</a></td></tr>
+    <tr><td>Himachal Pradesh</td><td><a href="https://hppsconline.hp.gov.in" target="_blank">hppsconline.hp.gov.in</a></td></tr>
+    <tr><td>Jharkhand</td><td><a href="https://jpsc.gov.in" target="_blank">jpsc.gov.in</a></td></tr>
+    <tr><td>Karnataka</td><td><a href="https://kpsc.kar.nic.in" target="_blank">kpsc.kar.nic.in</a></td></tr>
+    <tr><td>Kerala</td><td><a href="https://www.keralapsc.gov.in" target="_blank">keralapsc.gov.in</a></td></tr>
+    <tr><td>Madhya Pradesh</td><td><a href="https://mppsc.mp.gov.in" target="_blank">mppsc.mp.gov.in</a></td></tr>
+    <tr><td>Maharashtra</td><td><a href="https://mpsc.gov.in" target="_blank">mpsc.gov.in</a></td></tr>
+    <tr><td>Manipur</td><td><a href="https://mpscmanipur.gov.in" target="_blank">mpscmanipur.gov.in</a></td></tr>
+    <tr><td>Meghalaya</td><td><a href="http://mpsc.nic.in" target="_blank">mpsc.nic.in</a></td></tr>
+    <tr><td>Mizoram</td><td><a href="https://mpsc.mizoram.gov.in" target="_blank">mpsc.mizoram.gov.in</a></td></tr>
+    <tr><td>Nagaland</td><td><a href="https://npsc.nagaland.gov.in" target="_blank">npsc.nagaland.gov.in</a></td></tr>
+    <tr><td>Odisha</td><td><a href="https://opsc.gov.in" target="_blank">opsc.gov.in</a></td></tr>
+    <tr><td>Punjab</td><td><a href="https://ppsc.gov.in" target="_blank">ppsc.gov.in</a></td></tr>
+    <tr><td>Rajasthan</td><td><a href="https://rpsc.rajasthan.gov.in" target="_blank">rpsc.rajasthan.gov.in</a></td></tr>
+    <tr><td>Sikkim</td><td><a href="https://spsc.sikkim.gov.in" target="_blank">spsc.sikkim.gov.in</a></td></tr>
+    <tr><td>Tamil Nadu</td><td><a href="https://www.tnpsc.gov.in" target="_blank">tnpsc.gov.in</a></td></tr>
+    <tr><td>Telangana</td><td><a href="https://tspsc.gov.in" target="_blank">tspsc.gov.in</a></td></tr>
+    <tr><td>Tripura</td><td><a href="https://tpsc.tripura.gov.in" target="_blank">tpsc.tripura.gov.in</a></td></tr>
+    <tr><td>Uttar Pradesh</td><td><a href="https://uppsc.up.nic.in" target="_blank">uppsc.up.nic.in</a></td></tr>
+    <tr><td>Uttarakhand</td><td><a href="https://ukpsc.gov.in" target="_blank">ukpsc.gov.in</a></td></tr>
+    <tr><td>West Bengal</td><td><a href="https://wbpsc.gov.in" target="_blank">wbpsc.gov.in</a></td></tr>
+  </table>
+
+  <h2>Union Territories Job Portals</h2>
+  <table>
+    <tr><th>UT</th><th>Link</th></tr>
+    <tr><td>Delhi</td><td><a href="https://dsssb.delhi.gov.in" target="_blank">dsssb.delhi.gov.in</a></td></tr>
+    <tr><td>Chandigarh</td><td><a href="https://chandigarh.gov.in" target="_blank">chandigarh.gov.in</a></td></tr>
+    <tr><td>Jammu & Kashmir</td><td><a href="https://jkpsc.nic.in" target="_blank">jkpsc.nic.in</a></td></tr>
+    <tr><td>Ladakh</td><td><a href="https://ladakh.nic.in" target="_blank">ladakh.nic.in</a></td></tr>
+    <tr><td>Andaman & Nicobar Islands</td><td><a href="https://andaman.gov.in" target="_blank">andaman.gov.in</a></td></tr>
+    <tr><td>Lakshadweep</td><td><a href="https://lakshadweep.gov.in" target="_blank">lakshadweep.gov.in</a></td></tr>
+    <tr><td>Puducherry</td><td><a href="https://recruitment.py.gov.in" target="_blank">recruitment.py.gov.in</a></td></tr>
+    <tr><td>Dadra & Nagar Haveli and Daman & Diu</td><td><a href="https://daman.nic.in" target="_blank">daman.nic.in</a></td></tr>
+  </table>
+
 </body>
 </html>
